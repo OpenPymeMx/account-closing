@@ -20,6 +20,7 @@
 
 from openerp.report import report_sxw
 from openerp.tools.translate import _
+from openerp.addons.report_webkit import webkit_report
 from openerp import pooler
 
 
@@ -223,25 +224,39 @@ class CurrencyUnrealizedReport(report_sxw.rml_parse):
             if not data['form'][mand]:
                 raise Exception(
                     _('%s argument is not set in wizard') % (mand,))
-        # we replace object
-        objects = []
+
+        new_objects_ids = []
+        shell_accounts = {}
         new_ids = data['form']['account_ids']
         period_id = data['form']['period_id']
         # get_all_account is in charge of ordering the accounts
         for acc_id in self.get_all_accounts(new_ids):
             acc = ShellAccount(
                 self.cursor, self.uid, self.pool, acc_id,
-                context=self.localcontext)
+                context=self.localcontext,
+            )
             if not acc.currency_revaluation:
                 continue
             acc.get_lines(period_id)
             if acc.ordered_lines:
-                objects.append(acc)
+                new_objects_ids.append(acc_id)
+                shell_accounts[acc_id] = acc
                 acc.compute_totals()
-        return super(CurrencyUnrealizedReport, self).set_context(
-            objects, data, ids, report_type=None)
 
-report_sxw.report_sxw(
-    'report.currency_unrealized', 'account.account',
-    'addons/account_multicurrency_revaluation/report/templates/'
-    'unrealized_currency_gain_loss.mako', parser=CurrencyUnrealizedReport)
+        self.localcontext['shell_accounts'] = shell_accounts
+        #  we replace object
+        objects = self.pool.get('account.account').browse(
+            self.cr, self.uid, new_objects_ids,
+        )
+        return super(CurrencyUnrealizedReport, self).set_context(
+            objects, data, ids, report_type=None,
+        )
+
+
+webkit_report.WebKitParser(
+    'report.currency_unrealized',
+    'account.account',
+    'addons/account_multicurrency_revaluation_report/report/templates/'
+    'unrealized_currency_gain_loss.mako',
+    parser=CurrencyUnrealizedReport,
+)

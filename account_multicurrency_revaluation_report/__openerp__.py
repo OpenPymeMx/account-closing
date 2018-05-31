@@ -19,20 +19,21 @@
 #
 ##############################################################################
 
-{"name": "Multicurrency Revaluation Report",
- "version": "8.0.1.0.0",
- "category": "Finance",
- "author": "Camptocamp,Odoo Community Association (OCA)",
- "license": 'AGPL-3',
- "summary": "Module for printing reports that completes the module "
-            "Multicurrency Revaluation",
- "depends": [
-     "account_multicurrency_revaluation",
-     "base_headers_webkit"
- ],
- "data": [
-     "wizard/print_currency_unrealized_report_view.xml",
-     "report/report.xml"
- ],
- 'installable': False,
- }
+{
+    'name': 'Multicurrency Revaluation Report',
+    'version': '8.0.1.0.0',
+    'category': 'Finance',
+    'author': 'Camptocamp, Odoo Community Association (OCA)',
+    'license': 'AGPL-3',
+    'summary': 'Module for printing reports that completes the module '
+               'Multicurrency Revaluation',
+    'depends': [
+        'account_multicurrency_revaluation',
+        'account_financial_report_webkit',
+    ],
+    'data': [
+        'wizard/print_currency_unrealized_report_view.xml',
+        'report/report.xml',
+    ],
+    'installable': True,
+}

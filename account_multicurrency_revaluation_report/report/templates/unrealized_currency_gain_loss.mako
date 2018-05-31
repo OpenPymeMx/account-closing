@@ -27,22 +27,25 @@
             </div>
         </div>
 %for account in objects:
+    <% 
+        sh_acc = shell_accounts[account.id]
+    %>
      <div class="act_as_table list_table" style="margin-top: 10px;">
-                <div class="act_as_caption account_title">
-                    ${account.code} - ${account.name}
-                </div>
-                <div class="act_as_thead">
-                   <div class="act_as_row labels">
-                      <div class="act_as_cell first_column">${_('Partner')}</div>
-                      <div class="act_as_cell first_column amount" style="width: 100px;">${_('Curr. Balance YTD')}</div>
-                      <div class="act_as_cell first_column amount" style="width: 50px;"></div>
-                      <div class="act_as_cell first_column amount" style="width: 80px;">${_('Revaluation Rate')}</div>
-                      <div class="act_as_cell first_column amount" style="width: 150px;">${_('Revaluated Amount YTD')}</div>
-                      <div class="act_as_cell first_column amount" style="width: 100px;">${_('Balance YTD')}</div>
-                      <div class="act_as_cell first_column amount" style="width: 100px;">${_('Gain(+)/Loss(-) YTD')}</div>
-                      </div>
-                   </div>
-               %for line in account.ordered_lines:
+        <div class="act_as_caption account_title">
+            ${account.code} - ${account.name}
+        </div>
+        <div class="act_as_thead">
+            <div class="act_as_row labels">
+              <div class="act_as_cell first_column">${_('Partner')}</div>
+              <div class="act_as_cell first_column amount" style="width: 100px;">${_('Curr. Balance YTD')}</div>
+              <div class="act_as_cell first_column amount" style="width: 50px;"></div>
+              <div class="act_as_cell first_column amount" style="width: 80px;">${_('Revaluation Rate')}</div>
+              <div class="act_as_cell first_column amount" style="width: 150px;">${_('Revaluated Amount YTD')}</div>
+              <div class="act_as_cell first_column amount" style="width: 100px;">${_('Balance YTD')}</div>
+              <div class="act_as_cell first_column amount" style="width: 100px;">${_('Gain(+)/Loss(-) YTD')}</div>
+              </div>
+            </div>
+            %for line in sh_acc.ordered_lines:
                <div class="act_as_row lines">
                 <div class="act_as_cell">${line.get('name', '--')}</div>
                 <div class="act_as_cell amount" style="width: 100px;">${formatLang(line.get('gl_foreign_balance',0.0), monetary=True)}</div>
@@ -58,9 +61,9 @@
                 <div class="act_as_cell"></div>
                 <div class="act_as_cell"></div>
                 <div class="act_as_cell"></div>
-                <div class="act_as_cell amount"><b>${formatLang(account.gl_revaluated_balance_total or 0.0, monetary=True)}</b></div>
-                <div class="act_as_cell amount"><b>${formatLang(account.gl_balance_total or 0.0, monetary=True)}</b></div>
-                <div class="act_as_cell amount"><b>${formatLang(account.gl_ytd_balance_total or 0.0, monetary=True)}</b></div>
+                <div class="act_as_cell amount"><b>${formatLang(sh_acc.gl_revaluated_balance_total or 0.0, monetary=True)}</b></div>
+                <div class="act_as_cell amount"><b>${formatLang(sh_acc.gl_balance_total or 0.0, monetary=True)}</b></div>
+                <div class="act_as_cell amount"><b>${formatLang(sh_acc.gl_ytd_balance_total or 0.0, monetary=True)}</b></div>
                </div>
      </div>
      <br/>
