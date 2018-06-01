@@ -1,0 +1,161 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* account_multicurrency_revaluation_report
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0rc12\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-06-01 05:00+0000\n"
+"PO-Revision-Date: 2018-06-01 05:00+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: account_multicurrency_revaluation_report
+#: code:addons/account_multicurrency_revaluation_report/report/currency_unrealized_report.py:226
+#, python-format
+msgid "%s argument is not set in wizard"
+msgstr ""
+
+#. module: account_multicurrency_revaluation_report
+#: report:addons/account_multicurrency_revaluation_report/report/templates/unrealized_currency_gain_loss.mako:44
+msgid "Balance YTD"
+msgstr ""
+
+#. module: account_multicurrency_revaluation_report
+#: view:unrealized.report.printer:account_multicurrency_revaluation_report.currency_urealized_report_launcher_wizard
+msgid "Cancel"
+msgstr ""
+
+#. module: account_multicurrency_revaluation_report
+#: field:unrealized.report.printer,chart_account_id:0
+msgid "Chart root"
+msgstr ""
+
+#. module: account_multicurrency_revaluation_report
+#: report:addons/account_multicurrency_revaluation_report/report/templates/unrealized_currency_gain_loss.mako:19
+msgid "Company"
+msgstr ""
+
+#. module: account_multicurrency_revaluation_report
+#: report:addons/account_multicurrency_revaluation_report/report/templates/unrealized_currency_gain_loss.mako:20
+msgid "Company currency"
+msgstr ""
+
+#. module: account_multicurrency_revaluation_report
+#: field:unrealized.report.printer,create_uid:0
+msgid "Created by"
+msgstr ""
+
+#. module: account_multicurrency_revaluation_report
+#: field:unrealized.report.printer,create_date:0
+msgid "Created on"
+msgstr ""
+
+#. module: account_multicurrency_revaluation_report
+#: report:addons/account_multicurrency_revaluation_report/report/templates/unrealized_currency_gain_loss.mako:40
+msgid "Curr. Balance YTD"
+msgstr ""
+
+#. module: account_multicurrency_revaluation_report
+#: report:addons/account_multicurrency_revaluation_report/report/templates/unrealized_currency_gain_loss.mako:23
+msgid "Currency Gain and Loss"
+msgstr ""
+
+#. module: account_multicurrency_revaluation_report
+#: field:unrealized.report.printer,display_name:0
+msgid "Display Name"
+msgstr ""
+
+#. module: account_multicurrency_revaluation_report
+#: code:addons/account_multicurrency_revaluation_report/report/currency_unrealized_report.py:116
+#, python-format
+msgid "Exchange Rate Gain and Loss Report"
+msgstr ""
+
+#. module: account_multicurrency_revaluation_report
+#: report:addons/account_multicurrency_revaluation_report/report/templates/unrealized_currency_gain_loss.mako:18
+msgid "Fiscal Period"
+msgstr ""
+
+#. module: account_multicurrency_revaluation_report
+#: report:addons/account_multicurrency_revaluation_report/report/templates/unrealized_currency_gain_loss.mako:45
+msgid "Gain(+)/Loss(-) YTD"
+msgstr ""
+
+#. module: account_multicurrency_revaluation_report
+#: field:unrealized.report.printer,id:0
+msgid "ID"
+msgstr ""
+
+#. module: account_multicurrency_revaluation_report
+#: field:unrealized.report.printer,__last_update:0
+msgid "Last Modified on"
+msgstr ""
+
+#. module: account_multicurrency_revaluation_report
+#: field:unrealized.report.printer,write_uid:0
+msgid "Last Updated by"
+msgstr ""
+
+#. module: account_multicurrency_revaluation_report
+#: field:unrealized.report.printer,write_date:0
+msgid "Last Updated on"
+msgstr ""
+
+#. module: account_multicurrency_revaluation_report
+#: report:addons/account_multicurrency_revaluation_report/report/templates/unrealized_currency_gain_loss.mako:39
+msgid "Partner"
+msgstr ""
+
+#. module: account_multicurrency_revaluation_report
+#: field:unrealized.report.printer,period_id:0
+msgid "Period to use"
+msgstr ""
+
+#. module: account_multicurrency_revaluation_report
+#: model:ir.actions.act_window,name:account_multicurrency_revaluation_report.currency_urealized_report_action_wizard
+#: model:ir.ui.menu,name:account_multicurrency_revaluation_report.currency_urealized_report_wizard_menu
+#: view:unrealized.report.printer:account_multicurrency_revaluation_report.currency_urealized_report_launcher_wizard
+msgid "Print Currency Unrealized"
+msgstr ""
+
+#. module: account_multicurrency_revaluation_report
+#: report:addons/account_multicurrency_revaluation_report/report/templates/unrealized_currency_gain_loss.mako:17
+msgid "Report"
+msgstr ""
+
+#. module: account_multicurrency_revaluation_report
+#: report:addons/account_multicurrency_revaluation_report/report/templates/unrealized_currency_gain_loss.mako:43
+msgid "Revaluated Amount YTD"
+msgstr ""
+
+#. module: account_multicurrency_revaluation_report
+#: report:addons/account_multicurrency_revaluation_report/report/templates/unrealized_currency_gain_loss.mako:42
+msgid "Revaluation Rate"
+msgstr ""
+
+#. module: account_multicurrency_revaluation_report
+#: report:addons/account_multicurrency_revaluation_report/report/templates/unrealized_currency_gain_loss.mako:60
+msgid "TOTAL"
+msgstr ""
+
+#. module: account_multicurrency_revaluation_report
+#: model:ir.actions.report.xml,name:account_multicurrency_revaluation_report.account_report_currency_unrealized
+msgid "Unrealized currency report"
+msgstr ""
+
+#. module: account_multicurrency_revaluation_report
+#: view:unrealized.report.printer:account_multicurrency_revaluation_report.currency_urealized_report_launcher_wizard
+msgid "_Print"
+msgstr ""
+
+#. module: account_multicurrency_revaluation_report
+#: view:unrealized.report.printer:account_multicurrency_revaluation_report.currency_urealized_report_launcher_wizard
+msgid "or"
+msgstr ""
+
