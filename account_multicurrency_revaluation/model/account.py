@@ -50,7 +50,9 @@ class AccountAccount(models.Model):
 
     @api.multi
     def _revaluation_query(self, revaluation_date):
-        lines_where_clause = self.env['account.move.line']._query_get()
+        lines_where_clause = self.env['account.move.line'].with_context(
+            all_fiscalyear=True
+        )._query_get()
         query = ("SELECT l.account_id as id, l.partner_id, l.currency_id, " +
                  ', '.join(self._sql_mapping.values()) +
                  " FROM account_move_line l "
@@ -70,9 +72,7 @@ class AccountAccount(models.Model):
     def compute_revaluations(self, period_ids, revaluation_date):
         accounts = {}
         # compute for each account the balance/debit/credit from the move lines
-        query, params = self.with_context(
-            periods=period_ids
-        )._revaluation_query(revaluation_date)
+        query, params = self._revaluation_query(revaluation_date)
         self.env.cr.execute(query, params)
 
         lines = self.env.cr.dictfetchall()
